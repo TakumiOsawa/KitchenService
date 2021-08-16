@@ -1,5 +1,6 @@
 package com.ftgo.KitchenService;
 
+import com.ftgo.KitchenService.event.TicketDomainEventPublisher;
 import com.ftgo.KitchenService.ticket.Ticket;
 import io.eventuate.tram.events.common.DomainEvent;
 import io.eventuate.tram.events.publisher.DomainEventPublisher;
@@ -14,10 +15,10 @@ import java.util.List;
 
 public class KitchenService {
     private final TicketRepository ticketRepository;
-    private final DomainEventPublisher eventPublisher;
+    private final TicketDomainEventPublisher eventPublisher;
 
     public KitchenService(@Autowired TicketRepository ticketRepository,
-                          @Autowired DomainEventPublisher eventPublisher) {
+                          @Autowired TicketDomainEventPublisher eventPublisher) {
         this.ticketRepository = ticketRepository;
         this.eventPublisher = eventPublisher;
     }
