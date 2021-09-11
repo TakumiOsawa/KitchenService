@@ -10,10 +10,9 @@ import java.util.function.Function;
  * Event Publisher specialized for a specific aggregate.
  *
  * @param <A> Type of aggregate.
- * @param <E> Type of event.
  */
 
-public class AbstractAggregateDomainEventPublisher<A, E> {
+public class AbstractAggregateDomainEventPublisher<A> {
     private Function<A, Object> idSupplier;
     private DomainEventPublisher eventPublisher;
     private Class<A> aggregateType;
@@ -26,8 +25,7 @@ public class AbstractAggregateDomainEventPublisher<A, E> {
         this.idSupplier = idSupplier;
     }
 
-    public void publish(A aggregate, List<E> events) {
-        eventPublisher.publish(aggregateType, idSupplier.apply(aggregate),
-                (List<DomainEvent>) events);
+    public void publish(A aggregate, List<DomainEvent> events) {
+        eventPublisher.publish(aggregateType, idSupplier.apply(aggregate), events);
     }
 }

@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER_NAME}
+    password: ${DATABASE_PASSWORD}
+
+eventuatelocal:
+  kafka:
+    bootstrap:
+      servers: ${KAFKA_ENDPOINT:localhost}:9092
+  zookeeper:
+    connection:
+      string: ${KAFKA_ENDPOINT:localhost}:2181
