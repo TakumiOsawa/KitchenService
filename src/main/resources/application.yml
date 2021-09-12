@@ -2,7 +2,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect
   datasource:
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: ${DATABASE_URL_TICKET}
     username: ${DATABASE_USER_NAME}
     password: ${DATABASE_PASSWORD}
